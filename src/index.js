@@ -33,10 +33,11 @@ app.use((req, res, nest) => {
 //routes // url del servidor
 app.use(require("./routes/index"));
 app.use(require("./routes/authentication"));
-app.use(require("./routes/links"));
-//app.use("/links", require("./routes/links"));
-//public files// codigo que el navegador puede acceder
+app.use("/links", require("./routes/links"));
+//app.use(require("./routes/links"));
 
+//public files// codigo que el navegador puede acceder
+app.use(express.static);
 //starting de server
 app.listen(app.get("port"), () => {
   console.log("server on port", app.get("port"));

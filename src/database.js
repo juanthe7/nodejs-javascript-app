@@ -20,5 +20,7 @@ pool.getConnection((err, connection) => {
   console.log("BD is connected");
   return;
 });
+
+//promesify pool query lo que antes era en callback
 pool.query = promisify(pool.query); // cada vez que haga una consulta uso promesas
 module.exports = pool;
